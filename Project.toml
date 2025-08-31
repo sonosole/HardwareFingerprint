@@ -1,0 +1,10 @@
+name = "HardwareFingerprint"
+uuid = "5f8e97f9-7315-45e7-82d3-3f552f66f453"
+authors = ["Sole <sonosole@163.com>"]
+version = "0.1.0"
+
+
+
+[compat]
+julia = "1"
+
