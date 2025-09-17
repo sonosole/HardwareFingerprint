@@ -12,7 +12,7 @@ end
 
 # 硬盘信息
 function diskinfo()
-    info = read(`wmic diskdrive get Model,SerialNumber,Partitions,Signature,Size /value`, String)
+    info = read(`wmic diskdrive where "InterfaceType<>'USB'" get Model,SerialNumber,Partitions,Signature,Size /value`, String)
     return replace(info, '\r'=>"", '\n'=>"|", " "=>"")
 end
 
@@ -24,7 +24,7 @@ end
 
 # 网卡信息
 function macinfo()
-    info = read(`wmic nicconfig get macaddress`, String)
+    info = read(`wmic nic where "PhysicalAdapter='True' AND (Name like '%Ethernet%' OR Name like '%Wireless%' OR Name like '%PCIe%')" get MACAddress,Name /value`, String)
     return replace(info, '\r'=>"", '\n'=>"|", " "=>"")
 end
 
