@@ -55,7 +55,7 @@ end
 
 
 
-function save2jl(dst::String="d:/base.jl")
+function save2jl(dst::String)
     path, name = splitdir(dst)
     if !occursin(".jl", name)
         error("not a .jl file")
@@ -77,5 +77,6 @@ function save2jl(dst::String="d:/base.jl")
     open(dst, "w") do io
         write(io, body)
     end
+    return nothing
 end
 
